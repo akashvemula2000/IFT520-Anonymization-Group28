@@ -87,7 +87,6 @@ if __name__ == "__main__":
     num_records = 3500   
     
     # Generate patient data and convert it to a DataFrame
-
     patient_data = generate_patient_data(num_records)
 
 

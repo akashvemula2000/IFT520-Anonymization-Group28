@@ -1,6 +1,7 @@
 import pandas as pd
 import boto3
 import hashlib
+import random
 from io import StringIO
 
 def read_aws_credentials(file_path='secretkey.txt'):
@@ -101,7 +102,7 @@ def generalize_patient_id(patient_id):
 
 def pseudonymize_name(name):
     # Pseudonymize the name using MD5 hashing
-    return f'Pseudo_{hashlib.md5(name.encode()).hexdigest()}'
+    return f'Pseudo_{hashlib.md5((name+str(random.randint(1, 1000))).encode()).hexdigest()}'
 
 def generalize_date_of_birth(dob):
     # Generalize date of birth into age groups
